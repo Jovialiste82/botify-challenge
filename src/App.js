@@ -1,10 +1,16 @@
 import "./App.css";
+import Dashboard from "./components/Dashboard";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <>
+      <CssBaseline />
+      <Container maxWidth='md'>
+        <Dashboard />
+      </Container>
+    </>
   );
 }
 
