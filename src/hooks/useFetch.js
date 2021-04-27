@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (url) => {
+export const useFetch = (url, setBodySelector) => {
+  const getOrbitingBodies = (array) => {
+    return Array.from(new Set(array.map((neo) => neo.orbitingBodies).flat()));
+  };
+
   const [response, setResponse] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -19,12 +23,16 @@ export const useFetch = (url) => {
             neo.estimated_diameter.kilometers.estimated_diameter_min,
             neo.estimated_diameter.kilometers.estimated_diameter_max
           ),
+          orbitingBodies: Array.from(
+            new Set(neo.close_approach_data.map((data) => data.orbiting_body))
+          ),
         };
       });
       const sortedData = data.sort(
         (a, b) => b.avgEstimatedDiameter - a.avgEstimatedDiameter
       );
       setResponse(sortedData);
+      setBodySelector(getOrbitingBodies(sortedData)[0]);
     };
     fetchData();
   }, [url]);
