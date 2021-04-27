@@ -1,8 +1,10 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
+import Box from "@material-ui/core/Box";
 import MenuOrbBody from "./MenuOrbBody";
 import styled from "styled-components";
+import SwitchButton from "./SwitchButton";
 
 const StyledButton = styled(Button)`
   background-color: #6772e5;
@@ -21,6 +23,8 @@ const ControlPanel = ({
   orbitingBodies,
   orbBodySelector,
   seOrbBodySelector,
+  handleAlignment,
+  alignment,
 }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -37,24 +41,34 @@ const ControlPanel = ({
 
   return (
     <>
-      <StyledButton
-        aria-controls='simple-menu'
-        aria-haspopup='true'
-        onClick={handleClick}
-      >
-        <span>Orbiting body (${orbBodySelector})</span>
-      </StyledButton>
-      <Menu
-        id='simple-menu'
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        {orbitingBodies.map((item) => (
-          <MenuOrbBody handleClose={handleClose} item={item} />
-        ))}
-      </Menu>
+      <Box display='flex' p={1} bgcolor='background.paper'>
+        <Box>
+          <StyledButton
+            aria-controls='simple-menu'
+            aria-haspopup='true'
+            onClick={handleClick}
+          >
+            <span>Orbiting body (${orbBodySelector})</span>
+          </StyledButton>
+          <Menu
+            id='simple-menu'
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            {orbitingBodies.map((item) => (
+              <MenuOrbBody handleClose={handleClose} item={item} />
+            ))}
+          </Menu>
+        </Box>
+        <Box>
+          <SwitchButton
+            handleAlignment={handleAlignment}
+            alignment={alignment}
+          />
+        </Box>
+      </Box>
     </>
   );
 };

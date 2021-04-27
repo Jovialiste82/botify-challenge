@@ -1,25 +1,8 @@
 import React from "react";
 import Chart from "react-google-charts";
+import getNeosData from "../helpers/getNeosData";
 
 const ChartComp = ({ neos, orbBodySelector }) => {
-  const getNeosData = (array, selector) => {
-    const neosData = array
-      .filter((neo) => neo.orbitingBodies.includes(selector))
-      .map((neo) => [
-        neo.name,
-        parseInt(neo.minEstimatedDiameter),
-        parseInt(neo.maxEstimatedDiameter),
-      ]);
-
-    neosData.unshift([
-      "NEO Name",
-      "Min Estimated Diamater (km)",
-      "Min Estimated Diamater (km)",
-    ]);
-
-    return neosData;
-  };
-
   return (
     <Chart
       width={"800px"}
