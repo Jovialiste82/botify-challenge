@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (url, setBodySelector) => {
+export const useFetchOrbitingBodies = (url, setBodySelector) => {
   const getOrbitingBodies = (array) => {
     return Array.from(new Set(array.map((neo) => neo.orbitingBodies).flat()));
   };
@@ -35,6 +35,6 @@ export const useFetch = (url, setBodySelector) => {
       setBodySelector(getOrbitingBodies(sortedData)[0]);
     };
     fetchData();
-  }, [url]);
+  }, [url, setBodySelector]);
   return response;
 };
