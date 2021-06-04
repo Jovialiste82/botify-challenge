@@ -17,14 +17,14 @@ Coding challenge submitted in April 2021 to apply for a junior developer positio
 
 ## Instructions
 
-![Intro](https://ibb.co/SxNzL8X)
+![Intro](https://i.ibb.co/FwCY4ST/botify-instructions-1.jpg)
 
-![Description](https://ibb.co/RgZBbLg)
+![Description](https://i.ibb.co/JHRKyW6/botify-instructions-2.jpg)
 
-![Data Visualization](https://ibb.co/hVZtRJn)
+![Data Visualization](https://i.ibb.co/1TDhjLv/botify-instructions-3.jpg)
 
-![Data Filtering](https://ibb.co/6Yh4NhW)
+![Data Filtering](https://i.ibb.co/LgDyGyw/botify-instructions-4.jpg)
 
-![Display as a Table](https://ibb.co/1Gnd9rL)
+![Display as a Table](https://i.ibb.co/WBg2m8j/botify-instructions-5.jpg)
 
-![Bonus Steps](https://ibb.co/zfKp3hg)
+![Bonus Steps](https://i.ibb.co/K77fVrF/botify-instructions-6.jpg)
