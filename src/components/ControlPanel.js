@@ -27,15 +27,12 @@ const ControlPanel = ({
   alignment,
 }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = (e) => {
-    seOrbBodySelector(
-      e.target.innerHTML.split('<span class="MuiTouchRipple-root"')[0]
-    );
+    seOrbBodySelector(e.target.innerText);
     setAnchorEl(null);
   };
 
@@ -48,14 +45,13 @@ const ControlPanel = ({
             aria-haspopup='true'
             onClick={handleClick}
           >
-            <span>Orbiting body (${orbBodySelector})</span>
+            <span>Orbiting body ({orbBodySelector})</span>
           </StyledButton>
           <Menu
             id='simple-menu'
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
-            onClose={handleClose}
           >
             {orbitingBodies.map((item) => (
               <MenuOrbBody handleClose={handleClose} item={item} />

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useFetch = (url, setBodySelector) => {
+export const useFetchOrbitingBodies = (setBodySelector) => {
   const getOrbitingBodies = (array) => {
     return Array.from(new Set(array.map((neo) => neo.orbitingBodies).flat()));
   };
@@ -8,6 +8,8 @@ export const useFetch = (url, setBodySelector) => {
   const [response, setResponse] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
+      const url =
+        "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY";
       const res = await fetch(url);
       const json = await res.json();
       const getAverage = (min, max) => (min + max) / 2;
@@ -35,6 +37,6 @@ export const useFetch = (url, setBodySelector) => {
       setBodySelector(getOrbitingBodies(sortedData)[0]);
     };
     fetchData();
-  }, [url]);
+  }, [setBodySelector]);
   return response;
 };
