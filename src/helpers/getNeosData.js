@@ -10,7 +10,7 @@ const getNeosData = (array, selector) => {
   neosData.unshift([
     "NEO Name",
     "Min Estimated Diamater (km)",
-    "Min Estimated Diamater (km)",
+    "Max Estimated Diamater (km)",
   ]);
 
   return neosData;
