@@ -43,16 +43,16 @@ const SwitchButton = ({ handleAlignment, alignment }) => {
       aria-label='text alignment'
     >
       <ToggleButton
-        value='chart'
+        value='BarChart'
         aria-label='left aligned'
-        style={alignment === "chart" ? selected : notselected}
+        style={alignment === "BarChart" ? selected : notselected}
       >
         Chart View
       </ToggleButton>
       <ToggleButton
-        value='table'
+        value='Table'
         aria-label='right aligned'
-        style={alignment === "table" ? selected : notselected}
+        style={alignment === "Table" ? selected : notselected}
       >
         Table View
       </ToggleButton>

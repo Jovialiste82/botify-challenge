@@ -1,14 +1,12 @@
 import React from "react";
-import ChartComp from "./Chart";
-import Table from "./Table";
+import ChartDisplay from "./Chart";
 import { useFetchOrbitingBodies } from "../hooks/useFetchOrbitingBodies";
 import ControlPanel from "./ControlPanel";
 
 const Dashboard = () => {
-  const url = "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY";
-  const [orbBodySelector, seOrbBodySelector] = React.useState();
-  const data = useFetchOrbitingBodies(url, seOrbBodySelector);
-  const [viewMode, setViewMode] = React.useState("chart");
+  const [orbBodySelector, setOrbBodySelector] = React.useState();
+  const data = useFetchOrbitingBodies(setOrbBodySelector);
+  const [viewMode, setViewMode] = React.useState("BarChart");
 
   const handleAlignment = (event, newAlignment) => {
     setViewMode(newAlignment);
@@ -27,19 +25,31 @@ const Dashboard = () => {
           <ControlPanel
             orbitingBodies={getOrbitingBodies(data)}
             orbBodySelector={orbBodySelector}
-            seOrbBodySelector={seOrbBodySelector}
+            setOrbBodySelector={setOrbBodySelector}
             handleAlignment={handleAlignment}
             alignment={viewMode}
           />
-          {viewMode === "chart" ? (
-            <div style={{ display: "flex", maxWidth: 900 }}>
-              <ChartComp neos={data} orbBodySelector={orbBodySelector} />
-            </div>
-          ) : (
-            <div style={{ display: "flex", maxWidth: 900 }}>
-              <Table neos={data} orbBodySelector={orbBodySelector} />
-            </div>
-          )}
+          <ChartDisplay
+            neos={data}
+            orbBodySelector={orbBodySelector}
+            viewMode={viewMode}
+            options={
+              viewMode === "BarChart"
+                ? {
+                    chartArea: { width: "50%" },
+                    hAxis: {
+                      title: "Min Estimated Diamater (km)",
+                      minValue: 0,
+                    },
+                    vAxis: {
+                      title: "NEO Name",
+                    },
+                  }
+                : {
+                    showRowNumber: true,
+                  }
+            }
+          />
         </>
       )}
     </div>
