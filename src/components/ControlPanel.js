@@ -22,7 +22,7 @@ const StyledButton = styled(Button)`
 const ControlPanel = ({
   orbitingBodies,
   orbBodySelector,
-  seOrbBodySelector,
+  setOrbBodySelector,
   handleAlignment,
   alignment,
 }) => {
@@ -32,7 +32,7 @@ const ControlPanel = ({
   };
 
   const handleClose = (e) => {
-    seOrbBodySelector(e.target.innerText);
+    setOrbBodySelector(e.target.innerText);
     setAnchorEl(null);
   };
 
