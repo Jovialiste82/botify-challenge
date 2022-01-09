@@ -3,6 +3,7 @@
 Coding challenge submitted in April 2021 to apply for a junior developer position at [Botify](https://www.botify.com/). Following my work submission, I was invited to an interview.
 
 IMPORTANT : As of Januaray 2022, code seems broken.... will have to figure out if it has something to do with a change in the API data and action on it.
+UPDATE : it seems indeed that the "close_approach_data" property is now returning an empty array. Let's wait a couple of days to see if this get fixed.
 
 ## Contributors
 
